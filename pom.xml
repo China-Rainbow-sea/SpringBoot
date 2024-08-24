@@ -9,4 +9,50 @@
     <version>1.0-SNAPSHOT</version>
 
 
+    <!--    导入SpringBoot 父工程-规定写法-->
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.5.3</version>
+    </parent>
+
+    <!--自定义设置2：通过 properties 也是可以指定mysql.version的版本设置的-->
+    <properties>
+        <mysql.version>5.1.49</mysql.version>
+    </properties>
+
+    <!--    导入web项目场景启动器：会自动导入和web开发相关的jar包所有依赖【库/jar】-->
+    <!--    后面还会在说明spring-boot-starter-web 到底引入哪些相关依赖-->
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+
+<!--
+        我们自己指定mysql/驱动版本，修改版本仲裁
+        1.方式1： 显示导入mysql依赖，并明确指定<version>
+        2.方式2： 在自己的pom.xml文件中，在<properties> 中指定的mysql的 key
+        例如:
+
+                 <properties>
+                    <mysql.version>5.1.49</mysql.version>
+                 </properties>
+
+
+       3. 为什么可以达到修改版本仲裁：根据依赖：就近原则
+-->
+
+
+
+        <!--      自定义设置：1  我们自己指定mysql/驱动版本-->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <!--            <version>5.1.37</version>,不指明就是，采用SpringBoot 约定好的(也就是默认的8.26)-->
+        </dependency>
+    </dependencies>
+
+
 </project>
