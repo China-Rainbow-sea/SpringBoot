@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.rainbowsea</groupId>
+    <artifactId>mySpringBoot</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <!--    导入SpringBoot 父工程-规定写法-->
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.5.3</version>
+    </parent>
+
+
+    <!--    导入web项目场景启动器：会自动导入和web开发相关的jar包所有依赖【库/jar】-->
+    <!--    后面还会在说明spring-boot-starter-web 到底引入哪些相关依赖-->
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+<!--
+        因为我们自己要创建 Tomcat 对象，并启动，
+        因此我们先排除 内嵌的 spring-boot-starter-tomcat
+-->
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-web</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+<!--        我们指定tomcat版本，引入 tomcat 依赖/库-->
+<!--
+            1. 使用指定的tomcat 8.5.75 ，请小伙伴也引入这个版本
+            2. 如果我们引入自己指定的tomcat，一定要记住把前面spring-boot-stater-tomcat 排除
+            3. 如果你不排除，会出现 GenericServlet Not Found错误
+-->
+        <dependency>
+            <groupId>org.apache.tomcat.embed</groupId>
+            <artifactId>tomcat-embed-core</artifactId>
+            <version>8.5.75</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.tomcat</groupId>
+            <artifactId>tomcat-jasper</artifactId>
+            <version>8.5.75</version>
+        </dependency>
+    </dependencies>
+
+</project>

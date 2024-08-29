@@ -6,7 +6,11 @@
 
     <groupId>com.rainbowsea</groupId>
     <artifactId>quickstart</artifactId>
+    <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>demo01</module>
+    </modules>
 
 
     <!--    导入SpringBoot 父工程-规定写法-->
@@ -53,15 +57,24 @@
         </dependency>
 
 
-
         <!--        解决  @ConfigurationProperties(prefix = "furn01") 提示信息,  在 pom.xml  增加依赖,  即可
         Spring Boot Configuration Annotation Processor not configured 提示信息
         -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-configuration-processor</artifactId>
+            <!--  这里配置 optional 为 true
+             说明：表示防止将此依赖传递到其它模块，同时不加入 war 包当中，因为这个依赖仅仅是为了
+             我们编写代码的时候比较方便，但是实际发布的项目当中是不需要这个的。所以剔除掉它。
+            -->
             <optional>true</optional>
         </dependency>
+
+        <dependency>
+            <groupId>org.yaml</groupId>
+            <artifactId>snakeyaml</artifactId>
+        </dependency>
+
     </dependencies>
 
 

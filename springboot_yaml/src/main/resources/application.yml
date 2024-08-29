@@ -1,0 +1,39 @@
+monster:
+  age: 5000
+  is-married: true
+  birth: 2000/10/10
+  name: 牛魔王
+  id: 100
+  # 对象
+#  car: {name: 宝马,price: 10000} # 行内格式，不用忽略了空格，里面，和外面的空格
+  car: # 换行格式
+    name: 宝马~
+    price: 30000
+  # 数组
+#  skill: [芭蕉扇,牛魔拳] # 行内格式
+  skill:
+    - 芭蕉扇~
+    - 牛魔拳~
+#  hobby: [喝酒,吃肉] # 行内格式
+  hobby:
+    - 喝酒~
+    - 吃肉~
+
+  #map 属性对象
+#  wife: {no1: 玉面狐狸,no2: 铁扇公主} # 行内风格，不用忽略了空格，里面，和外面的空格
+  wife:
+    no1: 玉面狐狸
+    no2: 铁扇公主
+  salaries: [10000,20000]
+  cars: # 因为   private Map<String,List<Car>> cars;
+    group1:
+      - {name: 奔驰,price: 3000}
+      - name: 保时捷
+        price: 6000
+    group2:
+      - {name: 保时捷,price: 8000}
+      - name: 宝马
+        price: 5000
+
+
+# 不要用 tab缩进，因为不同的编译器 tab 缩进的大小不一，而yaml的语法又是对空格十分的敏感
