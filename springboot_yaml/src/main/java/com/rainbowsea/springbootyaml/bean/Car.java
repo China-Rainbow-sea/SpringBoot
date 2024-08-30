@@ -2,7 +2,7 @@ package com.rainbowsea.springbootyaml.bean;
 
 
 import lombok.Data;
-import org.springframework.stereotype.Component;
+
 
 
 

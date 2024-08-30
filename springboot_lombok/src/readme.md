@@ -38,11 +38,11 @@ java
 可以看到生成的完整代码。
 
 
-特别说明:@Data 中的 @RequiredArgsConstructor
+特别说明: @Data 中的 @RequiredArgsConstructor
 在我们写controller 或是 Service层的时候，需要注入很多的 mapper接口或者另外的service接口，这时候就会写很多
 的@Autowired注解，代码看起来很乱。Lombok 提供了一个注解:
 @RequiredArgsConstructor(onConstructor=@_(@AutoWired))
-写在类上可以代替@Autowired注解，需要注意的时在注入时，需要用final定义，或者使用@notnull注解
+写在类上可以代替@Autowired注解，需要注意的时在注入时，需要用final定义，或者使用 @notnull注解 
 
 
 在idea 安装 lombok插件

@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class HiController {
 
 
-    //@Resource  // 通过 yaml 注入赋值 @Resource 和 Autowired 都可以
+    //@Resource  // 通过 yaml 注入赋值 @Resource 和 Autowired 都可以，因为该bean对象已经被注入到ioc容器当中了
     @Autowired
     private Monster monster;
 
