@@ -1,0 +1,11 @@
+spring:
+  mvc:
+    static-path-pattern: /rainbowsea/**
+
+  web:
+    resources:
+      # 修改/指定 静态资源的访问路径/位置
+      static-locations: ["classpath:/test/","classpath:/META-INF/resources/", "classpath:/resources/",
+                         "classpath:/static/", "classpath:/public/"]# 仿写
+
+# 注意：尽量在最左边开始写，才有更多的提示

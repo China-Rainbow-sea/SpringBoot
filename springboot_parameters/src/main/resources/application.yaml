@@ -1,0 +1,7 @@
+spring:
+  mvc:
+    view: # 配置视图解析器
+      prefix: / # 这里是需要注意，如果你配置了 static-path-pattern: /rainbowsea/** 需要保持一致
+      #      prefix: /rainbowsea/ 都行 # 这里是需要注意，如果你配置了 static-path-pattern: /rainbowsea/** 需要保持一致
+      suffix: .html
+
