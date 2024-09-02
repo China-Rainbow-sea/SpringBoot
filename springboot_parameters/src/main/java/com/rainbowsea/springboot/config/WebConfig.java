@@ -13,8 +13,6 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration // 标志配置类
 public class WebConfig {
-
-
     @Bean // 注如到 ioc容器当中
     public WebMvcConfigurer webMvcConfigurer() {
 
@@ -29,7 +27,7 @@ public class WebConfig {
                  * 4. converters 底层结构时 ConcurrentHashMap 内置了124个转换器
                  * 5. 一会老师会使用 debug 来看到这些转换器
                  */
-                registry.addConverter(new Converter<String, Car>() { // 第一个参数是要转换的类型，第二个参数是想要转换成什么类型
+                Converter<String,Car> converter = new Converter<String, Car>() { // 第一个参数是要转换的类型，第二个参数是想要转换成什么类型
                     @Override
                     public Car convert(String source) {  // source 就是传入的字符串，避水金晶兽
                         // 这里就加入你的自定义的转换业务处理
@@ -43,8 +41,23 @@ public class WebConfig {
                         }
                         return null;
                     }
-                });
+                };
 
+
+                // 添加转换器converter3 重复了
+                Converter<String,Car> converter3 = new Converter<String, Car>() { // 第一个参数是要转换的类型，第二个参数是想要转换成什么类型
+                    @Override
+                    public Car convert(String source) {  // source 就是传入的字符串，避水金晶兽
+                        // 这里就加入你的自定义的转换业务处理
+                        //if(StringUtils)
+                        if(!ObjectUtils.isEmpty(source)) {
+                            System.out.println("source-" + source);
+                        }
+                        return null;
+                    }
+                };
+
+                // 第2个自定义转换器
                 // 还可以增加更多的转换器
                 Converter<String,Monster> converter2 = new Converter<String, Monster>() { //
                     // 第一个参数是要转换的类型，第二个参数是想要转换成什么类型
@@ -61,21 +74,8 @@ public class WebConfig {
                     }
                 };
 
-                // 第2个自定义转换器
-
-                // 添加转换器converter3 重复了
-
-                Converter<String,Car> converter3 = new Converter<String, Car>() { // 第一个参数是要转换的类型，第二个参数是想要转换成什么类型
-                    @Override
-                    public Car convert(String source) {  // source 就是传入的字符串，避水金晶兽
-                        // 这里就加入你的自定义的转换业务处理
-                        //if(StringUtils)
-                        if(!ObjectUtils.isEmpty(source)) {
-                            System.out.println("source-" + source);
-                        }
-                        return null;
-                    }
-                };
+                // 添加自定义的转换器
+                registry.addConverter(converter);
                 registry.addConverter(converter2);
                 registry.addConverter(converter3);
             }

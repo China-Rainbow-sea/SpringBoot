@@ -30,7 +30,13 @@ import java.util.Map;
 @Controller
 public class ParameterController {
 
-
+    // 处理添加 monster 的方法
+    @PostMapping("/savemonster")
+    @ResponseBody
+    public String saveMonster(Monster monster) {
+        System.out.println("monster-" + monster);
+        return "success";
+    }
 
     /**
      * /monster/{id}{name} 构成完整请求路径
@@ -180,10 +186,5 @@ public class ParameterController {
     }
 
 
-    // 处理添加 monster 的方法
-    @PostMapping("/savemonster")
-    public String saveMonster(Monster monster) {
-        System.out.println("monster-" + monster);
-        return "success";
-    }
+
 }
