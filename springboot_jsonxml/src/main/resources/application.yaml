@@ -1,0 +1,7 @@
+spring:
+  mvc:
+    contentnegotiation:
+      favor-parameter: true # 开启基于请求参数的内容协商功能
+      #？format=json
+      parameter-name: rainbowsea # 指定一个内容协商的参数名，就不再是默认的 format而是
+      # ？rainbowsea=json ，默认的失效了
