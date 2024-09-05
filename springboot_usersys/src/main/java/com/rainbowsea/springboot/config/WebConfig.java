@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
-@Configuration  // 配置拦截器
+@Configuration  //标注配置类， 配置拦截器
 public class WebConfig
 /*        implements WebMvcConfigurer {
     @Override
@@ -20,6 +20,16 @@ public class WebConfig
         // 所以添加就错了，就成了 /templates/templates/images/**了。
 
     }*/
+
+
+
+
+
+
+
+
+
+
 {
 
     @Bean

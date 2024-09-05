@@ -23,9 +23,11 @@ public class WebUtils {
 
     /**
      * 以年月日创建目录
-     * @return
+     * 返回一个年月日为格式的目录的字符串
+     * @return 返回一个年月日为格式的目录的字符串
      */
     public static String getUploadFileDirectory() {
+        // 返回一个年月日为格式的目录的字符串
         return "static/images/" + new SimpleDateFormat("yyyy/MM/dd").format(new Date());
     }
 
