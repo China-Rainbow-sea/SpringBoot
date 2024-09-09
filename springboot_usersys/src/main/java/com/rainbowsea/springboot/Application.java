@@ -13,7 +13,7 @@ public class Application {
 
     public static void main(String[] args) {
         ConfigurableApplicationContext ioc = SpringApplication.run(Application.class, args);
-        //ioc.stop();  // 停止容器
+        ioc.stop();  // 停止容器
 
         System.out.println("hello");
     }

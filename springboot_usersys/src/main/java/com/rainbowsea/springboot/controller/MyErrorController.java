@@ -10,21 +10,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class MyErrorController {
 
-    // 模拟一个服务器内部错误 500
-    @GetMapping("/err")  // get 请求路径的映射
-    public String err() {
-        int i = 10 / 0;
-        return "manage";
-    }
-
-
-    // 这里我们配置的是Post方式请求 / err2
-    // 老师一会使用 get方式来请求 /err2，这样就会出现一个4开头的客户端请求
-    @PostMapping("/err2")
-    public String err2() {
-        return "manage";
-    }
-
     // 编写方法， 模拟一个AccessException
     @GetMapping("/err3")
     public String err3(String name) {
@@ -43,6 +28,45 @@ public class MyErrorController {
 
         return "manage"; // 视图地址
     }
+
+
+
+
+
+
+
+
+
+
+
+
+    // 模拟一个服务器内部错误 500
+    @GetMapping("/err")  // get 请求路径的映射
+    public String err() {
+        int i = 10 / 0;
+        return "manage";
+    }
+
+
+
+
+
+
+
+
+    // 这里我们配置的是Post方式请求 / err2
+    // 一会使用 get方式来请求 /err2，这样就会出现一个4开头的客户端请求
+    @PostMapping("/err2")
+    public String err2() {
+        return "manage";
+    }
+
+
+
+
+
+
+
 
 
 }

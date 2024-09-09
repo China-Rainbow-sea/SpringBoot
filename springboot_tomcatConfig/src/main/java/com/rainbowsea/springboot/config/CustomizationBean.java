@@ -17,6 +17,6 @@ public class CustomizationBean implements WebServerFactoryCustomizer<Configurabl
 
     @Override
     public void customize(ConfigurableServletWebServerFactory serverFactory) {
-        serverFactory.setPort(9090); // 我们设置了 server的端口为 9090
+        //serverFactory.setPort(9090); // 我们设置了 server的端口为 9090
     }
 }
