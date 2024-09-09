@@ -239,3 +239,36 @@ public class WebConfig{
 
 如果把自定义异常类型，放在全局异常回来，那么仍然走全局异常处理机制。
 简单的说：我们自定义的异常类型，也是可以放到全局异常当中的。
+
+
+
+
+
+# 注入 Servlet，Filter，Listener
+
+## 基本介绍
+1.考虑到实际开发业务非常复杂和兼容，Spring-Boot 支持将 Servlet，Filter ，Listener注入Spring容器
+，成为Spring bean
+2.也就是说明 Spring Boot 开放了和原生 WEB组件(Servlet,Filter,Listener)的兼容。
+
+
+# 使用 RegistrationBean 方式注入 Servlet,Filter过滤器，Listener拦截器
+
+
+# 注意事项和细节说明:
+
+
+**请求 (自己所编写的)Servlet 时，为什么不会到达拦截器** 
+> 请求 Servlet 时，不会到达 DispatherServlet,因此也不会到达拦截器
+>原因分析:
+>   注入的Servlet会存在Spring容器
+>   DispatherServlet也存在Spring 容器
+>多个Servlet容器能处理到同一层拦截，精确优先原则/最长前缀匹配原则
+>所以当请求/servlet01时，就会直接匹配到注入的servlet
+>简单的说：就是当你 servlet之间跳转通信的时候，是先找同一层的servlet，如果你同一层的
+>servlet有你所需要的映射的请求路径，那么优先跳转到servlet上，而不走 拦截器了，因为拦截器是在
+>介于 servlet 和 Controller 控制器之间的。
+大家可以回忆一下：我们讲过的 Tomcat在对 Servlet url 匹配的原则，多个servlet都能处理到同一层路径
+>，精确优先原则/最长前缀匹配原则
+在Spring Boot 中，去调用@Controller 目标方法，是按照DispatherServlet分发匹配的机制，请同学们
+>回顾一下，我们自己实现Spring MVC 的底层机制的程序
