@@ -1,17 +1,17 @@
-#spring:
-#  servlet:
-#    multipart:
-#      max-file-size: 10MB
-#      max-request-size: 50MB
-#server:
-#  # 配置端口
-#  port: 999
-#  tomcat: # 对 tomcat 的配置
-#    threads:
-#      max: 10 # 最大的工作线程，默认是 2000
-#      min-spare: 5 # 最小工作线程，默认是10
-#    accept-count: 200 # tomcat 启动的线程达到最大值，接受排队的请求个数，默认是100
-#    max-connections: 2000 # 最大连接数，其实就是最大并发数，也就是说，tomcat最多可以同时(根据上面的配置:最大
-##    线程，启动线程的最大值)进行分发处理，2000，有10个线程，每个线程处理200个请求。的并发数
-#    connection-timeout: 10000 # 建立连接的超时时间，单位是毫秒
-#
+spring:
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 50MB
+server:
+  # 配置端口
+  port: 999
+  tomcat: # 对 tomcat 的配置
+    threads:
+      max: 10 # 最大的工作线程，默认是 2000
+      min-spare: 5 # 最小工作线程，默认是10
+    accept-count: 200 # tomcat 启动的线程达到最大值，接受排队的请求个数，默认是100
+    max-connections: 2000 # 最大连接数，其实就是最大并发数，也就是说，tomcat最多可以同时(根据上面的配置:最大
+#    线程，启动线程的最大值)进行分发处理，2000，有10个线程，每个线程处理200个请求。的并发数
+    connection-timeout: 10000 # 建立连接的超时时间，单位是毫秒
+
