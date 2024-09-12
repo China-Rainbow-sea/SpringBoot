@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.rainbowsea</groupId>
+    <artifactId>springboot_druid</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+
+
+
+    <!--    导入SpringBoot 父工程-规定写法-->
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.5.3</version>
+    </parent>
+
+    <!--    导入web项目场景启动器：会自动导入和web开发相关的jar包所有依赖【库/jar】-->
+    <!--    后面还会在说明spring-boot-starter-web 到底引入哪些相关依赖-->
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <!--引入lombok-->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+
+        <!--        进行数据库开发，引入 data-jdbc starter  spring boot 自带的数据库连接池
+        HikariDataSource-->
+
+        <!--        注意：
+          spring boot 导入的该 jdbc  HikariDataSource 数据源
+          1. HikariDataSource 数据源
+          2. jdbc 数据链接
+          3. tx  事务
+          4. 注意：spring boot 并不能知道，你的项目想要操作的是什么数据库，
+          所以你需要指定你想要的数据库，告诉spring boot 你想要连接的数据库
+
+        -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jdbc</artifactId>
+        </dependency>
+
+        <!--
+                1， 引入mysql 驱动，这里我们引入的是 8.0.26
+                2. 这个mysql驱动的版本要和实际安装的mysql版本一致
+                3. 我们的spring-boot mysql 区别仲裁版本是   <mysql.version>8.0.26</mysql.version>
+                4. 这个mysql 驱动的版本，也可以在pom.xml properties 配置文件当中指定。
+        -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <!--            <version>8.0.26</version>-->
+        </dependency>
+
+        <!--        如何开发springboot 测试类，我们需要引入  spring-boot-starter-test -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+        </dependency>
+
+<!--        引入 druid 依赖-->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid</artifactId>
+            <version>1.2.8</version>
+        </dependency>
+
+    </dependencies>
+
+
+</project>
