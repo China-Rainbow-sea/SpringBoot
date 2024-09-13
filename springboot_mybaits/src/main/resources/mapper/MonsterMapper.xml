@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.rainbowsea.springboot.mybatis.mapper.MonsterMapper">
+<!--
+    1. 扫描所有的dao接口的实现，加入到ioc容器中
+    2. 这里dao接口，就是mapper接口
+-->
+
+
+    <!--    配置 getMonsterById-->
+    <select id="getMonsterById" resultType="com.rainbowsea.springboot.mybatis.bean.Monster">
+         select * from monster where id = #{id}
+    </select>
+<!--  elect * from `monster` where id = #{id} 注意: 不是单引号处理 -->
+</mapper>

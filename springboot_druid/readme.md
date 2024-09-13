@@ -83,3 +83,4 @@ https://github.com/alibaba/druid/wiki/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98#8-%E6
 
 前面我们使用的是自己引入druid+配置类方式整合Druid和监控
 Druid Spring Boot Starter 可以让程序员在SpringBoot项目中更加轻松集成Druid和监控
+
