@@ -3,6 +3,7 @@ package com.rainbowsea.springboot.mybatispuls.mapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.rainbowsea.springboot.mybatispuls.bean.Monster;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 /**
  * BaseMapper 已经默认提供了很多的crud 方法，可以直接使用
@@ -11,11 +12,15 @@ import org.apache.ibatis.annotations.Mapper;
  */
 
 
-//@Mapper
+@Mapper
 public interface MonsterMapper extends BaseMapper<Monster> {
 
     // 自定义方法
     // 使用 mybatisx 插件
+
+    int insertSelective(Monster monster);
+
+    int delByEmail(@Param("email") String email);
 
 
 

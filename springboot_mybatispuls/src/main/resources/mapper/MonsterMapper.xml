@@ -5,4 +5,31 @@
 <mapper namespace="com.rainbowsea.springboot.mybatispuls.mapper.MonsterMapper">
 
 
+    <delete id="delByEmail">
+delete from monster_
+where
+email = #{email,jdbcType=VARCHAR}
+</delete>
+    <insert id="insertSelective">
+        insert into monster_
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">id,</if>
+            <if test="age != null">age,</if>
+            <if test="birthday != null">birthday,</if>
+            <if test="email != null">email,</if>
+            <if test="name != null">name,</if>
+            <if test="gender != null">gender,</if>
+            <if test="salary != null">salary,</if>
+        </trim>
+        values
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">#{id,jdbcType=NUMERIC},</if>
+            <if test="age != null">#{age,jdbcType=NUMERIC},</if>
+            <if test="birthday != null">#{birthday,jdbcType=TIMESTAMP},</if>
+            <if test="email != null">#{email,jdbcType=VARCHAR},</if>
+            <if test="name != null">#{name,jdbcType=VARCHAR},</if>
+            <if test="gender != null">#{gender,jdbcType=VARCHAR},</if>
+            <if test="salary != null">#{salary,jdbcType=DECIMAL},</if>
+        </trim>
+    </insert>
 </mapper>
