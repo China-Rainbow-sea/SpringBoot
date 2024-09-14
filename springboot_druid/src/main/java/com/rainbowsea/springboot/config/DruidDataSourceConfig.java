@@ -32,12 +32,7 @@ public class DruidDataSourceConfig {
         // 就可以读取到application.yaml的配置
         // 2.我们就不需要调用DruidDataSource 对象的setXX,会自动关联
 
-
         DruidDataSource druidDataSource = new DruidDataSource();
-        //druidDataSource.setUrl();
-        //druidDataSource.setUsername();
-        //druidDataSource.setPassword();
-
 
         // 将数据库连接池加入到 druid监视当中
         // wall ，将数据库连接池加入sql防火墙
@@ -45,27 +40,6 @@ public class DruidDataSourceConfig {
 
         return druidDataSource;
     }
-
-
-    // 配置druid的监控页功能, 注意：是 Servlet 注入的配置，和上次内容的 自定义 Servlet的注入
-    @Bean // 注意要注入到 ioc 容器当中
-    public ServletRegistrationBean staatViewServlet() {
-        // 创建 StatViewServlet
-        StatViewServlet statViewServlet = new StatViewServlet();
-        ServletRegistrationBean<StatViewServlet>
-                statViewServletServletRegistrationBean = new ServletRegistrationBean<>(statViewServlet, "/druid/*");
-        // statViewServlet, "/druid/*") 表示映射的路径
-
-        // 设置 init-parameter,就是设置进入 Druid的账号和密码;
-        statViewServletServletRegistrationBean.addInitParameter("loginUsername", "rainbowsea");
-        statViewServletServletRegistrationBean.addInitParameter("loginPassword", "666");
-
-
-        return statViewServletServletRegistrationBean;
-
-
-    }
-
 
     // 配置 WebStatFilter，用于采集 web-jdbc 关联的监控数据
     // 注意用的是 Filter 过滤器
@@ -102,4 +76,27 @@ public class DruidDataSourceConfig {
          */
 
     }
+
+
+    // 配置druid的监控页功能, 注意：是 Servlet 注入的配置，和上次内容的 自定义 Servlet的注入
+    @Bean // 注意要注入到 ioc 容器当中
+    public ServletRegistrationBean staatViewServlet() {
+        // 创建 StatViewServlet
+        StatViewServlet statViewServlet = new StatViewServlet();
+        ServletRegistrationBean<StatViewServlet>
+                statViewServletServletRegistrationBean = new ServletRegistrationBean<>(statViewServlet, "/druid/*");
+        // statViewServlet, "/druid/*") 表示映射的路径
+
+        // 设置 init-parameter,就是设置进入 Druid的账号和密码;
+        statViewServletServletRegistrationBean.addInitParameter("loginUsername", "rainbowsea");
+        statViewServletServletRegistrationBean.addInitParameter("loginPassword", "666");
+
+
+        return statViewServletServletRegistrationBean;
+
+
+    }
+
+
+
 }

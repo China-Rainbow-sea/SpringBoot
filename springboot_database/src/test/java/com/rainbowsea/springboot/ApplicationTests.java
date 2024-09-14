@@ -10,7 +10,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import javax.annotation.Resource;
 import java.util.List;
 
-@SpringBootTest    // 该注解表示 spring boot 测试, 注意使用该 Spring boot 测试必须要定义编写对应的applicaton 场景类
+@SpringBootTest(classes = Application.class)    // 该注解表示 spring boot 测试, 注意使用该 Spring boot 测试必须要定义编写对应的applicaton 场景类
 public class ApplicationTests {
 
     // 大家可以回忆一下，在学习 spring 时，讲过的 JdbcTemplate
