@@ -1,12 +1,13 @@
 package com.rainbowsea.springboot.mybatisplus;
 
 
-import com.rainbowsea.springboot.mybatis.bean.Monster;
 import com.rainbowsea.springboot.mybatispuls.Application;
+import com.rainbowsea.springboot.mybatispuls.bean.Monster;
 import com.rainbowsea.springboot.mybatispuls.mapper.MonsterMapper;
 import com.rainbowsea.springboot.mybatispuls.service.MonsterService;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.jdbc.core.JdbcTemplate;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -14,18 +15,23 @@ import java.util.List;
 @SpringBootTest(classes = Application.class)
 public class ApplicationTest {
 
+
+
     @Resource
     private MonsterMapper monsterMapper;
-
-
-    @Resource
-    private MonsterService monsterService;
 
     @Test
     public void testMonsterMapper() {
         Monster monster = monsterMapper.selectById(2);
         System.out.println("monster--" + monster);
     }
+
+
+
+
+
+    @Resource
+    private MonsterService monsterService;
 
 
     @Test
@@ -40,5 +46,28 @@ public class ApplicationTest {
             System.out.println(monster1);
         }
     }
+
+
+
+
+
+
+
+
+    @Resource
+    private JdbcTemplate jdbcTemplate;
+
+
+
+    @Test
+    public void getDruidSourceTest() {
+        System.out.println(jdbcTemplate.getDataSource().getClass());
+    }
+
+
+
+
+
+
 
 }

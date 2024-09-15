@@ -1,7 +1,8 @@
 package com.rainbowsea.springboot.mybatispuls.controller;
 
 
-import com.rainbowsea.springboot.mybatis.bean.Monster;
+
+import com.rainbowsea.springboot.mybatispuls.bean.Monster;
 import com.rainbowsea.springboot.mybatispuls.service.MonsterService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
